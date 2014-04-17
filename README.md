@@ -34,6 +34,7 @@ All of the available options are listed below:
   <li>background</li>
   <li>duration</li>
   <li>delay</li>
+  <li>callback</li>
 </ul>
 
 
@@ -102,22 +103,32 @@ The amount of time in ms until the animation will run. For example
 This will result that the animation will start 1s after the code above is executed.
 
 
+### Option: Callbacl
+
+Values:
+<br><br>
+<code>default: function(){} </code><br><br><code>accepted: function(){ //your function here }</code>
+<br><br>
+The callback option lets you run a function once the animation has finished. For Example:
+<br><br>
+<code>$(".element").hex({callback: function(){console.log('done');}});</code>
+<br><br>
+This will result that once the animation is complete, <code>done</code> will be printed in the console.
+
 ## Option: Example
       
 This is the animation used on loading this doc.
 <br><br>
 <code>
-$(document).ready(function(){<br> 
+$(document).ready(function(){<br>
 &nbsp;&nbsp;&nbsp;&nbsp;show_hex();<br>
 &nbsp;});<br>
 <br><br>
 &nbsp;function show_hex(){<br>
-&nbsp;&nbsp;&nbsp;&nbsp;$(".hex_ani").hex({show: true, direction: "left", background: "#0769ad", duration: 5, delay: 5000});
-&nbsp;&nbsp;&nbsp;&nbsp;setTimeout("hide_hex()",10000);
+&nbsp;&nbsp;&nbsp;&nbsp;$(".hex_ani").hex({show: true, direction: "left", background: "#0769ad", duration: 5, delay: 0, callback: function(){setTimeout("hide_hex()",5000);}});
 &nbsp;}
 <br><br>
 &nbsp;function hide_hex(){<br>
-&nbsp;&nbsp;&nbsp;&nbsp;$(".hex_ani").hex({show: false, direction: "left", background: "#0769ad", duration: 5, delay: 5000});
-&nbsp;&nbsp;&nbsp;&nbsp;setTimeout("show_hex()",10000);
+&nbsp;&nbsp;&nbsp;&nbsp;$(".hex_ani").hex({show: false, direction: "left", background: "#0769ad", duration: 5, delay: 0, callback: function(){setTimeout("show_hex()",5000);}});
 &nbsp;}
 </code>
