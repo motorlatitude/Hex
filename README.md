@@ -1,39 +1,43 @@
 jQuery Plugin: Hex
 =====================
-<div class="body">
-  <div class="wrapper">
-    <span class="title">Getting Started</span>
-    <p>
-      jQuery is required for the plugin to work:<br><br>
-      <code>http://code.jquery.com/jquery-latest.min.js</code>
-      <br><br>
-      The element in which the hex effect is ment to be run needs to have the <code>position: relative</code> or <code>position: absolute</code> set in the css.
-      <br><br>
-      The plugin can be added to your file like usual:<br><br>
-      <code>&lt;script type="text/javascript" src="lib/hex.js"&gt;&lt;/script&gt;</code>
-    </p>
-    <span class="title">Basic Usage</span>
-    <p>
-      To use the effect with its derfault settings:
-      <br><br>
-      <code>$(".element").hex();</code>
-      <br><br>
-      This will reveal the element with the animation running from right to left and using hexagons with the default background <code>#eee</code>
-    </p>
-    <span class="title">Options</span>
-    <p>
-      All of the available options are listed below:
-      <br>
-      </p><ul>
-        <li>show</li>
-        <li>direction</li>
-        <li>background</li>
-        <li>duration</li>
-        <li>delay</li>
-      </ul>
-    <p></p>
-    <span class="title">&nbsp; &nbsp; &nbsp;Option: Show</span>
-    <p class="sub">
+
+Getting Started
+---------------------
+
+jQuery is required for the plugin to work:<br><br>
+<code>http://code.jquery.com/jquery-latest.min.js</code>
+<br><br>
+The element in which the hex effect is ment to be run needs to have the <code>position: relative</code> or <code>position: absolute</code> set in the css.
+<br><br>
+The plugin can be added to your file like usual:<br><br>
+<code>&lt;script type="text/javascript" src="lib/hex.js"&gt;&lt;/script&gt;</code>
+
+
+Basic Usage
+----------------------
+
+To use the effect with its derfault settings:
+<br><br>
+<code>$(".element").hex();</code>
+<br><br>
+This will reveal the element with the animation running from right to left and using hexagons with the default background <code>#eee</code>
+
+
+Options
+----------------------
+
+All of the available options are listed below:
+<br>
+<ul>
+  <li>show</li>
+  <li>direction</li>
+  <li>background</li>
+  <li>duration</li>
+  <li>delay</li>
+</ul>
+
+
+# Option: Show
       Values:
       <br><br>
       <code>default: true </code><br><br><code>accepted: BOOL</code>
@@ -45,7 +49,8 @@ jQuery Plugin: Hex
       and to show it:
       <br><br>
       <code>$(".element").hex({show:true});</code>
-    </p>
+
+      
     <span class="title">&nbsp; &nbsp; &nbsp;Option: Direction</span>
     <p class="sub">
       Values:
