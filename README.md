@@ -1,10 +1,5 @@
-<div class="header"></div>
-<div class="title">
-  <div class="hex_ani">
-    
-  </div>
-  <div class="text">jQuery Plugin: Hex</div>
-</div>
+jQuery Plugin: Hex
+=====================
 <div class="body">
   <div class="wrapper">
     <span class="title">Getting Started</span>
