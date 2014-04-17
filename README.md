@@ -4,6 +4,9 @@ jQuery Plugin: Hex
 Getting Started
 ---------------------
 
+<a href="http://codepen.io/motorlatitude/pen/BJIfk">Live Preview</a>
+
+
 jQuery is required for the plugin to work:<br><br>
 <code>http://code.jquery.com/jquery-latest.min.js</code>
 <br><br>
