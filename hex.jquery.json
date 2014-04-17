@@ -1,0 +1,35 @@
+{
+    "name": "hex",
+    "title": "jQuery Hex",
+    "description": "jQuery plugin for hiding and showing elements with hexagons",
+    "keywords": [
+        "hexagons",
+        "animation",
+        "effects",
+        "show",
+        "hide"
+    ],
+    "version": "1.0.0",
+    "author": {
+        "name": "Lennart Hase"
+    },
+    "maintainers": [
+        {
+            "name": "Lennart Hase",
+            "email": "magico.lenny@gmail.com",
+            "url": "https://github.com/motorlatitude/Hex"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://raw.githubusercontent.com/motorlatitude/Hex/master/LICENSE"
+        }
+    ],
+    "homepage": "https://github.com/motorlatitude/Hex",
+    "docs": "http://codepen.io/motorlatitude/pen/BJIfk",
+    "download": "http://code.jquery.com/#hex",
+    "dependencies": {
+        "jquery": ">=1.5"
+    }
+}
