@@ -103,7 +103,7 @@ The amount of time in ms until the animation will run. For example
 This will result that the animation will start 1s after the code above is executed.
 
 
-### Option: Callbacl
+### Option: Callback
 
 Values:
 <br><br>
