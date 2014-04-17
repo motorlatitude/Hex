@@ -28,7 +28,7 @@
     ],
     "homepage": "https://github.com/motorlatitude/Hex",
     "docs": "http://codepen.io/motorlatitude/pen/BJIfk",
-    "download": "http://code.jquery.com/#hex",
+    "download": "https://github.com/motorlatitude/Hex/archive/1.0.0.zip",
     "dependencies": {
         "jquery": ">=1.5"
     }
