@@ -1,57 +1,53 @@
 (function ( $ ) {		  
     $.fn.hex = function( options ) {
- 
-        // This is the easiest way to have default options.
         var settings = $.extend({
-            // These are the defaults.
           show: true,
           direction: "right",
           background: "#eee",
           duration: 10,
-          delay: 100
+          delay: 100,
+          callback: function() {}
         }, options );
       
         var randLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
         var uid = randLetter + Date.now();
         
-        if(!settings.show){
-          $("html head").append("<style type='text/css'>.hex"+uid+":before {content: ''; width: 0; height: 0; border-bottom: 12px solid "+settings.background+"; border-left: 22px solid transparent; border-right: 22px solid transparent; position: absolute; top: -12px;} .hex"+uid+" {z-index: inherit; display: none; opacity: 0; margin-top: 12px; width: 44px; height: 25px; background-color: "+settings.background+"; position: absolute; top: 300px; margin-left: 1px;} .hex"+uid+":after { content: ''; width: 0; position: absolute; bottom: -12px; border-top: 12px solid "+settings.background+"; border-left: 22px solid transparent; border-right: 22px solid transparent;}</style>");
+        if($(".hexagon",this).length > 0){
+            uid = $(".hexagon",this).attr('class').split(/\s+/)[0].replace("hex","");
         }
         else{
-          $("html head").append("<style type='text/css'>.hex"+uid+":before {content: ''; width: 0; height: 0; border-bottom: 12px solid "+settings.background+"; border-left: 22px solid transparent; border-right: 22px solid transparent; position: absolute; top: -12px;} .hex"+uid+" {z-index: inherit; margin-top: 12px; width: 44px; height: 25px; background-color: "+settings.background+"; position: absolute; top: 300px; margin-left: 1px;} .hex"+uid+":after { content: ''; width: 0; position: absolute; bottom: -12px; border-top: 12px solid "+settings.background+"; border-left: 22px solid transparent; border-right: 22px solid transparent;}</style>");
-        }
-      
-        $(this).each(function(index){
-          var w = $(this).width();
-          console.log("w:"+w);
-          var h = $(this).height();
-          console.log("h:"+h);
-          var a = Math.ceil((w/40))*Math.ceil((h/25));
-          //var x = $(this).offset().left-30;
-          var x = -30;
-          console.log("x:"+x);
-          //var y = $(this).offset().top-30;
-          var y = -30;
-          console.log("y:"+y);
-          var r = 0;
-          var r_y= 0;
-          for(var i=0;i<a;i++){
-            if(r_y>Math.ceil(w/40)){
-              r++;
-              r_y = 0;
-            }
-            if(r%2 == 0){
-              $(this).append("<div class='hex"+uid+"' style='margin-left: 23px; top:"+(y+(36*r))+"px; left:"+(x+(44*r_y))+"px;'></div>");
-            }
-            else{
-              $(this).append("<div class='hex"+uid+"' style='top:"+(y+(36*r))+"px; left:"+(x+(44*r_y))+"px;'></div>");
-            }
-            console.log("y_val: "+(y+(37*r)));
-
-            r_y++;
+          if(!settings.show){
+            $("html head").append("<style type='text/css'>.hex"+uid+":before {content: ''; width: 0; height: 0; border-bottom: 12px solid "+settings.background+"; border-left: 22px solid transparent; border-right: 22px solid transparent; position: absolute; top: -12px;} .hex"+uid+" {z-index: inherit; display: none; opacity: 0; margin-top: 12px; width: 44px; height: 25px; background-color: "+settings.background+"; position: absolute; top: 300px; margin-left: 1px;} .hex"+uid+":after { content: ''; width: 0; position: absolute; bottom: -12px; border-top: 12px solid "+settings.background+"; border-left: 22px solid transparent; border-right: 22px solid transparent;}</style>");
           }
-        });
-      
+          else{
+            $("html head").append("<style type='text/css'>.hex"+uid+":before {content: ''; width: 0; height: 0; border-bottom: 12px solid "+settings.background+"; border-left: 22px solid transparent; border-right: 22px solid transparent; position: absolute; top: -12px;} .hex"+uid+" {z-index: inherit; margin-top: 12px; width: 44px; height: 25px; background-color: "+settings.background+"; position: absolute; top: 300px; margin-left: 1px;} .hex"+uid+":after { content: ''; width: 0; position: absolute; bottom: -12px; border-top: 12px solid "+settings.background+"; border-left: 22px solid transparent; border-right: 22px solid transparent;}</style>");
+          }
+        
+          $(this).each(function(index){
+            var w = $(this).width();
+            var h = $(this).height();
+            var a = Math.ceil((w/40))*Math.ceil((h/25));
+            var x = -30;
+            var y = -30;
+            var r = 0;
+            var r_y= 0;
+            for(var i=0;i<a;i++){
+              if(r_y>Math.ceil(w/40)){
+                r++;
+                r_y = 0;
+              }
+              if(r%2 == 0){
+                $(this).append("<div class='hex"+uid+" hexagon' style='margin-left: 23px; top:"+(y+(36*r))+"px; left:"+(x+(44*r_y))+"px;'></div>");
+              }
+              else{
+                $(this).append("<div class='hex"+uid+" hexagon' style='top:"+(y+(36*r))+"px; left:"+(x+(44*r_y))+"px;'></div>");
+              }
+
+              r_y++;
+            }
+          });
+        }
+
         $(this).each(function(index){
            $(".hex"+uid,this).each(function(){
              if(settings.direction == "right"){
@@ -101,16 +97,34 @@
                $(this).css("display","block");
                $(this).delay(t).animate({
                  opacity: 1
-               }, 600);
+               }, 600, function(){
+                var c = 0;
+                $(".hex"+uid).each(function(){
+                  if($(this).css("opacity") == 1){
+                    c++;
+                  }
+                });
+                if(c >= $(".hex"+uid).length){
+                  settings.callback.call(this);
+                }
+               });
              }
              else{
                $(this).delay(t).animate({
                  opacity: 0
-               }, 600, function(){$(this).css("display","none");});
+               }, 600, function(){
+                $(this).css("display","none"); 
+                $(this).remove();
+                if($(".hex"+uid).length>0){
+
+                }
+                else{
+                  settings.callback.call(this);
+                }
+              });
              }
            });
         });
- 
     };
  
 }( jQuery ));
