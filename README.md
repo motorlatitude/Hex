@@ -37,90 +37,87 @@ All of the available options are listed below:
 </ul>
 
 
-# Option: Show
-      Values:
-      <br><br>
-      <code>default: true </code><br><br><code>accepted: BOOL</code>
-      <br><br>
-      The show option allows you to specifiy if you want to show or hide the element. The following code shows how to hide an element:
-      <br><br>
-      <code>$(".element").hex({show:false});</code>
-      <br><br>
-      and to show it:
-      <br><br>
-      <code>$(".element").hex({show:true});</code>
+### Option: Show
 
+Values:
+<br><br>
+<code>default: true </code><br><br><code>accepted: BOOL</code>
+<br><br>
+The show option allows you to specifiy if you want to show or hide the element. The following code shows how to hide an element:
+<br><br>
+<code>$(".element").hex({show:false});</code>
+<br><br>
+and to show it:
+<br><br>
+<code>$(".element").hex({show:true});</code>
+
+
+### Option: Direction
+
+Values:
+<br><br>
+<code>default: "right" </code><br><br><code>accepted: "right", "left", "up", "down", "random", "center"</code>
+<br><br>
+The direction option allows you to specify in which direction the hexagons will come in or go out. For example:
+<br><br>
+<code>$(".element").hex({direction: "random"});</code>
+<br><br>
+This will remove/add the hexagons randomly until the whole object is covered or revealed completely.
+
+
+### Option: Background
+
+Values:
+<br><br>
+<code>default: "#eee" </code><br><br><code>accepted: "css color"</code>
+<br><br>
+The background option allows you to change the color of the hexagons, the default color is <code>#eee</code>. For example:
+<br><br>
+<code>$(".element").hex({background: "#005da6"});</code>
+
+
+### Option: Duration
+
+Values:
+<br><br>
+<code>default: 10 </code><br><br><code>accepted: int &gt; 0</code>
+<br><br>
+The duration option allows you to set how long it takes for hexagons to start vanishing. This value is randomly generated with respect to the location of the hexagon. By changing the duraiton value will be multiply the delay. So decreasing the duration value will cause the delay to be less than the hexagons will vanish earlier. For example
+<br><br>
+<code>$(".element").hex({duration: 5});</code>
+<br><br>
+This will result in the hexagons vanishing in half the time.
+    
+
+### Option: Delay
+
+Values:
+<br><br>
+<code>default: 0 </code><br><br><code>accepted: int &gt; -1</code>
+<br><br>
+The amount of time in ms until the animation will run. For example
+<br><br>
+<code>$(".element").hex({delay: 1000});</code>
+<br><br>
+This will result that the animation will start 1s after the code above is executed.
+
+
+## Option: Example
       
-    <span class="title">&nbsp; &nbsp; &nbsp;Option: Direction</span>
-    <p class="sub">
-      Values:
-      <br><br>
-      <code>default: "right" </code><br><br><code>accepted: "right", "left", "up", "down", "random", "center"</code>
-      <br><br>
-      The direction option allows you to specify in which direction the hexagons will come in or go out. For example:
-      <br><br>
-      <code>$(".element").hex({direction: "random"});</code>
-      <br><br>
-      This will remove/add the hexagons randomly until the whole object is covered or revealed completely.
-    </p>
-    <span class="title">&nbsp; &nbsp; &nbsp;Option: Background</span>
-      <p class="sub">
-        Values:
-        <br><br>
-        <code>default: "#eee" </code><br><br><code>accepted: "css color"</code>
-        <br><br>
-        The background option allows you to change the color of the hexagons, the default color is <code>#eee</code>. For example:
-        <br><br>
-        <code>$(".element").hex({background: "#005da6"});</code>
-        <br><br>
-        This will result in the hexagons being this color:<br><br>
-        <div class="hex"></div>
-      <br>
-    </p>
-    <span class="title">&nbsp; &nbsp; &nbsp;Option: Duration</span>
-    <p class="sub">
-      Values:
-      <br><br>
-      <code>default: 10 </code><br><br><code>accepted: int &gt; 0</code>
-      <br><br>
-      The duration option allows you to set how long it takes for hexagons to start vanishing. This value is randomly generated with respect to the location of the hexagon. By changing the duraiton value will be multiply the delay. So decreasing the duration value will cause the delay to be less than the hexagons will vanish earlier. For example
-      <br><br>
-      <code>$(".element").hex({duration: 5});</code>
-      <br><br>
-      This will result in the hexagons vanishing in half the time.
-    </p>
-    <span class="title">&nbsp; &nbsp; &nbsp;Option: Delay</span>
-    <p class="sub">
-      Values:
-      <br><br>
-      <code>default: 0 </code><br><br><code>accepted: int &gt; -1</code>
-      <br><br>
-      The amount of time in ms until the animation will run. For example
-      <br><br>
-      <code>$(".element").hex({delay: 1000});</code>
-      <br><br>
-      This will result that the animation will start 1s after the code above is executed.
-    </p>
-    <span class="title">Example</span>
-    <p>
-      This is the animation used on loading this doc.
-      <br><br>
-      <code>$(document).ready(function(){<br> 
-            &nbsp;&nbsp;&nbsp;&nbsp;show_hex();<br>
-            &nbsp;});<br>
-            <br><br>
-            &nbsp;function show_hex(){<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;$(".hex_ani").hex({show: true, direction: "left", background: "#0769ad", duration: 5, delay: 5000});
-            &nbsp;&nbsp;&nbsp;&nbsp;setTimeout("hide_hex()",10000);
-            &nbsp;}
-            <br><br>
-            &nbsp;function hide_hex(){<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;$(".hex_ani").hex({show: false, direction: "left", background: "#0769ad", duration: 5, delay: 5000});
-            &nbsp;&nbsp;&nbsp;&nbsp;setTimeout("show_hex()",10000);
-            &nbsp;}</code>
-    </p>
-  </div>
-</div>
-<div class="footer">
-  
-</div>
+This is the animation used on loading this doc.
+<br><br>
+<code>
+$(document).ready(function(){<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;show_hex();<br>
+&nbsp;});<br>
+<br><br>
+&nbsp;function show_hex(){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$(".hex_ani").hex({show: true, direction: "left", background: "#0769ad", duration: 5, delay: 5000});
+&nbsp;&nbsp;&nbsp;&nbsp;setTimeout("hide_hex()",10000);
+&nbsp;}
+<br><br>
+&nbsp;function hide_hex(){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$(".hex_ani").hex({show: false, direction: "left", background: "#0769ad", duration: 5, delay: 5000});
+&nbsp;&nbsp;&nbsp;&nbsp;setTimeout("show_hex()",10000);
+&nbsp;}
+</code>
