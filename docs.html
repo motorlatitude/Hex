@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="hex.js"></script>
+		<style type="text/css">
+			@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300,200);
+
+			body{
+			  margin: 0;
+			  padding: 0;
+			  background: #eee;
+			  overflow-x: hidden;
+			}
+
+			.header{
+			  position: absolute;
+			  top: 0px;
+			  left: 0px;
+			  width: 100%;
+			  height: 60px;
+			  background: #eee;
+			  box-shadow: 0 4px 10px #333;
+			  z-index: 1;
+			}
+
+			div.title{
+			  position: absolute;
+			  top: 60px;
+			  left: 0px;
+			  height: 200px;
+			  width: 100%;
+			  background: #6f7985;
+			  z-index: 0;
+			}
+
+			div.title .text{
+			  position: absolute;
+			  top: 60px;
+			  left: 30px;
+			  font-family: 'Yanone Kaffeesatz', sans-serif;
+			  font-weight: 200;
+			  color: #fff;
+			  font-size: 50px;
+			}
+
+			div.hex_ani{
+			  position: absolute;
+			  top: 0px;
+			  left: 0px;
+			  bottom: 0px;
+			  right: 0px;
+			}
+
+			div.body{
+			  position: absolute;
+			  top: 250px;
+			  left: 0px;
+			  background: #eee;
+			  width: 100%;
+			  height: 2350px;
+			  box-shadow: 0 -4px 10px #333, 0 4px 10px #333;
+			  padding: 25px 0 0 20%;
+			  z-index: 4;
+			}
+
+			div.footer{
+			  position: absolute;
+			  top: 2600px;
+			  left: 0px;
+			  height: 60px;
+			  width: 100%;
+			  background: #6f7985;
+			  z-index: 0;
+			}
+
+			.wrapper{
+			  width: 80%;
+			}
+
+			span.title{
+			  font-family: 'Yanone Kaffeesatz', sans-serif;
+			  font-weight: 300;
+			  color: #0769ad;
+			  font-size: 40px;
+			}
+
+			p{
+			  font-family: sans-serif;
+			  font-weight: 300;
+			  color: #333;
+			  font-size: 14px;
+			}
+
+			p a{
+			  text-decoration: none;
+			  color: #0769ad;
+			}
+
+			p code{
+			  background: #dee7f7;
+			  border-radius: 3px;
+			  padding: 2px 6px 2px 6px;
+			  border: 1px solid #cdd6e6;
+			  font-size: 13px;
+			  margin-top: 15px;
+			}
+
+			p.sub{
+			  margin-left: 35px;
+			}
+
+			ul li{
+			  font-family: sans-serif;
+			  font-weight: 300;
+			  color: #333;
+			  font-size: 14px;
+			  margin-top: 5px;
+			}
+
+			.hex:before {content: ''; width: 0; height: 0; border-bottom: 12px solid #0769ad; border-left: 22px solid transparent; border-right: 22px solid transparent; position: absolute; top: -12px;} .hex {z-index: inherit; margin-top: 12px; width: 44px; height: 25px; background-color: #0769ad; position: relative; margin-left: 45px;} .hex:after { content: ''; width: 0; position: absolute; bottom: -12px; border-top: 12px solid #0769ad; border-left: 22px solid transparent; border-right: 22px solid transparent;}
+		</style>
+		<script type="text/javascript">
+			$(document).ready(function(){  
+			  show_hex();
+			});
+
+			function show_hex(){
+			  $(".hex_ani").hex({show: true, direction: "left", background: "#0769ad", duration: 5, delay: 3000});
+			  setTimeout("hide_hex()",10000);
+			}
+
+			function hide_hex(){
+			  $(".hex_ani").hex({show: false, direction: "left", background: "#0769ad", duration: 5, delay: 3000});
+			  setTimeout("show_hex()",10000);
+			}
+		</script>
+	</head>
+	<body>
+		<div class="header"></div>
+		<div class="title">
+		  <div class="hex_ani">
+		    
+		  </div>
+		  <div class="text">jQuery Plugin: Hex</div>
+		</div>
+		<div class="body">
+		  <div class="wrapper">
+		    <span class="title">Getting Started</span>
+		    <p>
+		      jQuery is required for the plugin to work:<br><br>
+		      <code>http://code.jquery.com/jquery-latest.min.js</code>
+		      <br><br>
+		      The element in which the hex effect is ment to be run needs to have the <code>position: relative</code> or <code>position: absolute</code> set in the css.
+		      <br><br>
+		      The plugin can be added to your file like usual:<br><br>
+		      <code>&lt;script type="text/javascript" src="lib/hex.js"&gt;&lt;/script&gt;</code>
+		      <br><br>
+		      and can be downloaded here:
+		      <br><br>
+		      <a href="github.com">Download here</a>
+		    </p>
+		    <span class="title">Basic Usage</span>
+		    <p>
+		      To use the effect with its derfault settings:
+		      <br><br>
+		      <code>$(".element").hex();</code>
+		      <br><br>
+		      This will reveal the element with the animation running from right to left and using hexagons with the default background <code>#eee</code>
+		    </p>
+		    <span class="title">Options</span>
+		    <p>
+		      All of the available options are listed below:
+		      <br>
+		      </p><ul>
+		        <li>show</li>
+		        <li>direction</li>
+		        <li>background</li>
+		        <li>duration</li>
+		        <li>delay</li>
+		      </ul>
+		    <p></p>
+		    <span class="title">&nbsp; &nbsp; &nbsp;Option: Show</span>
+		    <p class="sub">
+		      Values:
+		      <br><br>
+		      <code>default: true </code><br><br><code>accepted: BOOL</code>
+		      <br><br>
+		      The show option allows you to specifiy if you want to show or hide the element. The following code shows how to hide an element:
+		      <br><br>
+		      <code>$(".element").hex({show:false});</code>
+		      <br><br>
+		      and to show it:
+		      <br><br>
+		      <code>$(".element").hex({show:true});</code>
+		    </p>
+		    <span class="title">&nbsp; &nbsp; &nbsp;Option: Direction</span>
+		    <p class="sub">
+		      Values:
+		      <br><br>
+		      <code>default: "right" </code><br><br><code>accepted: "right", "left", "up", "down", "random", "center"</code>
+		      <br><br>
+		      The direction option allows you to specify in which direction the hexagons will come in or go out. For example:
+		      <br><br>
+		      <code>$(".element").hex({direction: "random"});</code>
+		      <br><br>
+		      This will remove/add the hexagons randomly until the whole object is covered or revealed completely.
+		    </p>
+		    <span class="title">&nbsp; &nbsp; &nbsp;Option: Background</span>
+		      <p class="sub">
+		        Values:
+		        <br><br>
+		        <code>default: "#eee" </code><br><br><code>accepted: "css color"</code>
+		        <br><br>
+		        The background option allows you to change the color of the hexagons, the default color is <code>#eee</code>. For example:
+		        <br><br>
+		        <code>$(".element").hex({background: "#005da6"});</code>
+		        <br><br>
+		        This will result in the hexagons being this color:<br><br>
+		        <div class="hex"></div>
+		      <br>
+		    </p>
+		    <span class="title">&nbsp; &nbsp; &nbsp;Option: Duration</span>
+		    <p class="sub">
+		      Values:
+		      <br><br>
+		      <code>default: 10 </code><br><br><code>accepted: int &gt; 0</code>
+		      <br><br>
+		      The duration option allows you to set how long it takes for hexagons to start vanishing. This value is randomly generated with respect to the location of the hexagon. By changing the duraiton value will be multiply the delay. So decreasing the duration value will cause the delay to be less than the hexagons will vanish earlier. For example
+		      <br><br>
+		      <code>$(".element").hex({duration: 5});</code>
+		      <br><br>
+		      This will result in the hexagons vanishing in half the time.
+		    </p>
+		    <span class="title">&nbsp; &nbsp; &nbsp;Option: Delay</span>
+		    <p class="sub">
+		      Values:
+		      <br><br>
+		      <code>default: 0 </code><br><br><code>accepted: int &gt; -1</code>
+		      <br><br>
+		      The amount of time in ms until the animation will run. For example
+		      <br><br>
+		      <code>$(".element").hex({delay: 1000});</code>
+		      <br><br>
+		      This will result that the animation will start 1s after the code above is executed.
+		    </p>
+		    <span class="title">Example</span>
+		    <p>
+		      This is the animation used on loading this doc.
+		      <br><br>
+		      <code>$(document).ready(function(){<br> 
+		            &nbsp;&nbsp;&nbsp;&nbsp;show_hex();<br>
+		            &nbsp;});<br>
+		            <br><br>
+		            &nbsp;function show_hex(){<br>
+		            &nbsp;&nbsp;&nbsp;&nbsp;$(".hex_ani").hex({show: true, direction: "left", background: "#0769ad", duration: 5, delay: 5000});
+		            &nbsp;&nbsp;&nbsp;&nbsp;setTimeout("hide_hex()",10000);
+		            &nbsp;}
+		            <br><br>
+		            &nbsp;function hide_hex(){<br>
+		            &nbsp;&nbsp;&nbsp;&nbsp;$(".hex_ani").hex({show: false, direction: "left", background: "#0769ad", duration: 5, delay: 5000});
+		            &nbsp;&nbsp;&nbsp;&nbsp;setTimeout("show_hex()",10000);
+		            &nbsp;}</code>
+		    </p>
+		  </div>
+		</div>
+		<div class="footer">
+		  
+		</div>
+	</body>
+</html>
