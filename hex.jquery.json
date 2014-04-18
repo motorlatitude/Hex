@@ -9,7 +9,7 @@
         "show",
         "hide"
     ],
-    "version": "1.0.2",
+    "version": "1.0.3",
     "author": {
         "name": "Lennart Hase"
     },
@@ -28,7 +28,7 @@
     ],
     "homepage": "https://github.com/motorlatitude/Hex",
     "docs": "http://codepen.io/motorlatitude/full/BJIfk",
-    "download": "https://github.com/motorlatitude/Hex/archive/1.0.2.zip",
+    "download": "https://github.com/motorlatitude/Hex/archive/1.0.3.zip",
     "dependencies": {
         "jquery": ">=1.5"
     }
