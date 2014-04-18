@@ -129,7 +129,7 @@ This will result that once the animation is complete, <code>done</code> will be 
 
 ## Usage Example
       
-This is the animation used on loading this doc.
+This is the animation used on loading the docs.html file.
 <br>
 ```javascript
 $(document).ready(function(){
