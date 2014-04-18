@@ -5,7 +5,7 @@
           direction: "right",
           background: "#eee",
           duration: 10,
-          delay: 100,
+          delay: 0,
           callback: function() {}
         }, options );
       
