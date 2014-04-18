@@ -7,17 +7,22 @@
         "animation",
         "effects",
         "show",
-        "hide"
+        "hide",
+        "jquery",
+        "jqueryui",
+        "css",
+        "html",
+        "javascript"
     ],
-    "version": "1.0.3",
+    "version": "1.0.4",
     "author": {
-        "name": "Lennart Hase"
+        "name": "Lennart Hase (motorlatitude)"
     },
     "maintainers": [
         {
-            "name": "Lennart Hase",
+            "name": "Lennart Hase (motorlatitude)",
             "email": "magico.lenny@gmail.com",
-            "url": "https://github.com/motorlatitude/Hex"
+            "url": "https://codepen.io/motorlatitude"
         }
     ],
     "licenses": [
@@ -28,7 +33,9 @@
     ],
     "homepage": "https://github.com/motorlatitude/Hex",
     "docs": "http://codepen.io/motorlatitude/full/BJIfk",
-    "download": "https://github.com/motorlatitude/Hex/archive/1.0.3.zip",
+    "demo": "http://codepen.io/motorlatitude/full/BJIfk",
+    "bugs": "https://github.com/motorlatitude/Hex/issues",
+    "download": "https://github.com/motorlatitude/Hex/archive/1.0.4.zip",
     "dependencies": {
         "jquery": ">=1.5"
     }
