@@ -127,7 +127,7 @@ $(".element").hex({callback: function(){console.log('done');}});
 ```
 This will result that once the animation is complete, <code>done</code> will be printed in the console.
 
-## Option: Example
+## Usage Example
       
 This is the animation used on loading this doc.
 <br>
